@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
+import Bootcampcard from "../components/Bootcampcard";
 
 function Home() {
   const [bootcamps, setBootcamps] = useState([]);
@@ -16,14 +17,18 @@ function Home() {
 
   return (
     <div>
-      <h1>Bootcamps Disponibles</h1>
+    <h1>Bootcamps Disponibles</h1>
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
       {bootcamps.map(b => (
-        <div key={b.id}>
-          <h2>{b.nombre}</h2>
-          <p>{b.descripcion}</p>
-        </div>
+        <Bootcampcard
+          key={b.id}
+          title={b.nombre}
+          description={b.descripcion}
+          image={b.imagen}
+        />
       ))}
     </div>
+  </div>
   );
 }
 
