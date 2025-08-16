@@ -1,6 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -17,10 +17,10 @@ const Navbar = () => {
       </button>
       <ul className={`${styles.menu} ${open ? styles.menuOpen : ""}`}>
         <li>
-          <a href="#" className={styles.link}>Registrarte</a>
+          <Link to="/register" className={styles.link}>Registrarte</Link>
         </li>
         <li>
-          <a href="#" className={styles.link}>Iniciar sesion</a>
+          <Link to="/login" className={styles.link}>Iniciar sesión</Link>
         </li>
       </ul>
     </nav>

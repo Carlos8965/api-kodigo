@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/config";
 import { useNavigate } from "react-router-dom";
+import styles from "./Login.module.css";
 
 function Login() {
   const { register, handleSubmit } = useForm();
@@ -17,12 +18,14 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Iniciar Sesión</h2>
-      <input {...register("email")} placeholder="Email" />
-      <input {...register("password")} type="password" placeholder="Password" />
-      <button type="submit">Ingresar</button>
+  <div className={styles.background}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.card}>
+      <h2 className={styles.title}>Iniciar Sesión</h2>
+      <input {...register("email")} placeholder="Email" className={styles.input} />
+      <input {...register("password")} type="password" placeholder="Password" className={styles.input} />
+      <button type="submit" className={styles.button}>Ingresar</button>
     </form>
+  </div>
   );
 }
 
