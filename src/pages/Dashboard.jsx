@@ -1,5 +1,6 @@
 import { useAuth } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
+import BootcampsList from "../components/BootcampsList";
 
 function Dashboard() {
   const { user } = useAuth();
@@ -10,6 +11,7 @@ function Dashboard() {
     <div>
       <h1>Dashboard</h1>
       <p>Bienvenido, {user.email}</p>
+      <BootcampsList />
     </div>
   );
 }
